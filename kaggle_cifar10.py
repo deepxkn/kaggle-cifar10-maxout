@@ -34,8 +34,6 @@ class CIFAR10_TEST(dense_design_matrix.DenseDesignMatrix):
         #self.n_classes = 10
         #self.label_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
                             #'dog', 'frog','horse','ship','truck']
-
-
         # prepare loading
         #fnames = ['data_batch_%i' % i for i in range(1,6)]
         #lenx = N.ceil((ntrain + nvalid) / 10000.)*10000
