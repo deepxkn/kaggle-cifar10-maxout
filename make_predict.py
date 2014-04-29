@@ -18,7 +18,7 @@ _, model_path = sys.argv
 model = serial.load(model_path)
 
 src = model.dataset_yaml_src
-batch_size = 6000
+batch_size = 1000
 model.set_batch_size(batch_size)
 
 #def load_data(file=path+"data_1.npy".format(SNR)):
