@@ -39,7 +39,7 @@ batch_y = function([Xb],[yp])
 
 def make_predictions(X,test):
     yy = []
-    #assert isinstance(X[0], (int, long))
+    assert isinstance(X[0], (int, long))
     assert isinstance(batch_size, py_integer_types)
     print X.shape
     loop = X.shape[0]/batch_size
