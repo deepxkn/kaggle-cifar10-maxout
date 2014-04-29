@@ -71,11 +71,11 @@ for k in xrange(Num):
     print X.shape
     print "Making predict"
     y_pred = make_predictions(X,test)
-    print y_pred.shape
+    print len(y_pred), len(y_pred[0])
     y_preds.append(y_pred)
 
 print y_preds.shape
-y_preds = np.hstack(y_preds).flatten()
+y_preds = np.asarray(y_preds).flatten()
 print y_preds.shape
 
 np.save('bak/y_pred.npy', y_pred)
