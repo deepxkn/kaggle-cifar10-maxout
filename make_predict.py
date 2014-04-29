@@ -40,7 +40,6 @@ from theano import function
 yp = T.argmax(ymf,axis=1)
 batch_y = function([Xb],[yp])
 
-
 def make_predict():
     yy = []
     #assert isinstance(X[0], (int, long))
@@ -59,9 +58,7 @@ def make_predict():
     return yy
 
 y_pred = make_predict()
-
 y_pred = np.hstack(y_pred).flatten()
-
-np.save('y_pred.npy', y_pred)
+np.save('bak/y_pred.npy', y_pred)
 
 
