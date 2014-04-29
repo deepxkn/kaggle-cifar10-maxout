@@ -21,15 +21,8 @@ src = model.dataset_yaml_src
 batch_size = 6000
 model.set_batch_size(batch_size)
 
-def load_data(file=path+"data_1.npy".format(SNR)):
-    return np.load(file)
-
-#HOME=os.path.expanduser("~")
-#prefix=HOME+"/DATA/kaggle/cifar10/"
-
-
-
-
+#def load_data(file=path+"data_1.npy".format(SNR)):
+#    return np.load(file)
 
 import theano.tensor as T
 
@@ -79,8 +72,10 @@ for k in xrange(Num):
     print y_pred.shape
     y_preds.append(y_pred)
 
-
+print y_preds.shape
 y_preds = np.hstack(y_preds).flatten()
+print y_preds.shape
+
 np.save('bak/y_pred.npy', y_pred)
 
 
