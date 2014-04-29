@@ -30,7 +30,7 @@ def save_data(output='batch1.pkl', data=None):
 def work():
     #num=300000
     num=300
-    data=np.asarray([png2array(path="{}test/{}.png".format(prefix,i)) for i in range(num)])
+    data=np.asarray([png2array(path="{}test/{}.png".format(prefix,i+1)) for i in range(num)])
     print data.shape
     np.save('data{}.npy'.format(num), data)
 
