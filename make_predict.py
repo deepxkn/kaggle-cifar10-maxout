@@ -75,8 +75,8 @@ for k in xrange(Num):
     print len(y_pred), len(y_pred[0])
     y_preds += y_pred
 
-print len(y_preds), y_preds[-1].shape
-y_preds = np.vstack(y_preds).flatten()
+print len(y_preds), len(y_preds[-1])
+y_preds = np.asarray(y_preds).flatten()
 print y_preds.shape
 
 np.save('bak/y_preds.npy', y_preds)
