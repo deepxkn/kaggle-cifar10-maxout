@@ -63,10 +63,11 @@ y_preds=[]
 for k in xrange(Num):
     print "Loading the test data"
     X = CIFAR10_TEST(file="{}data_{}.npy".format(prefix, k), gcn = 55.)
-    print X.shape
-
     print "Preprocessing the test data"
     X.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
+
+    X = X.X.astype('float32')
+    print X.shape
     print "Making predict"
     y_pred = make_predictions(X)
     print y_pred.shape
