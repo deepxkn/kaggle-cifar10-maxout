@@ -10,7 +10,7 @@ def _flat2boxed(row):
     # Note we skip every 4th element, thus eliminating the alpha channel
     return [tuple(row[i:i+3]) for i in range(0, len(row), 3)]
 
-def png2array(path="/Users/eric/10000.png"):
+def png2array(path):
     (w, h, p, m) = png.Reader(filename = path).asRGB8()
     img = np.asarray([_flat2boxed(r) for r in p], dtype=np.uint8)
     data = img[...,0].reshape(1024)
@@ -32,7 +32,7 @@ def work():
     num=300
     data=np.asarray([png2array(path="{}test/{}.png".format(prefix,i+1)) for i in range(num)])
     print data.shape
-    np.save('data{}.npy'.format(num), data)
+    np.save(prefix+'data{}.npy'.format(num), data)
 
 if __name__ == '__main__':
     work()
