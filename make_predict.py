@@ -72,6 +72,7 @@ for k in xrange(Num):
     print X.shape
     print "Making predict"
     y_pred = make_predictions(X)
+    print 'y_pred TYPE: ', type(y_pred)
     print len(y_pred), len(y_pred[0])
     y_preds += y_pred
 
