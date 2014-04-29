@@ -65,11 +65,11 @@ print "Loading preprocessor"
 preprocessor=serial.load(HOME+"/DATA/image/cifar10/pylearn2_gcn_whitened/preprocessor.pkl")
 
 #Num=30
-Num=2
+Num=3
 y_preds=[]
 for k in xrange(Num):
     print "Loading the test data"
-    X = CIFAR10_TEST(gcn = 55.)
+    X = CIFAR10_TEST(file="{}data_{}.npy".format(prefix, k), gcn = 55.)
     print X.shape
 
     print "Preprocessing the test data"
