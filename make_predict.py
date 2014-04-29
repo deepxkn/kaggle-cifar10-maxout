@@ -79,6 +79,22 @@ print len(y_preds), y_preds[-1].shape
 y_preds = np.vstack(y_preds).flatten()
 print y_preds.shape
 
-np.save('bak/y_pred.npy', y_preds)
+np.save('bak/y_preds.npy', y_preds)
+
+import csv
+
+label_names = [ 'airplane', 'automobile', 'bird',  'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck' ]
+labels_dict = { i: x for i, x in enumerate( label_names ) }
+
+writer = csv.writer( open( output_file, 'wb' ))
+writer.writerow( [ 'id', 'label' ] )
+counter = 1
+
+for y in y_preds:
+    label = labels_dict[y]
+    writer.writerow( [ counter, label ] )
+    counter += 1
+
+assert( counter == 300001 )
 
 
