@@ -35,7 +35,7 @@ ymf.name = 'ymf'
 from theano import function
 
 yp = T.argmax(ymf,axis=1)
-batch_y = function([Xb],[yp], exception_verbosity=high)
+batch_y = function([Xb],[yp])
 
 def make_predictions(X,test):
     yy = []
