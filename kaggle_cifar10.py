@@ -14,7 +14,6 @@ from pylearn2.expr.preprocessing import global_contrast_normalize
 #HOME=os.path.expanduser("~")
 #prefix=HOME+"/DATA/kaggle/cifar10/"
 #file=prefix+"data300000.npy"
-
 class CIFAR10_TEST(dense_design_matrix.DenseDesignMatrix):
     def __init__(self, which_set, file=None, center = False, rescale = False, gcn = None, one_hot = False, start = None, stop = None, axes=('b', 0, 1, 'c'), toronto_prepro = False, preprocessor = None):
         # note: there is no such thing as the cifar10 validation set;
@@ -34,7 +33,7 @@ class CIFAR10_TEST(dense_design_matrix.DenseDesignMatrix):
         self.img_size = N.prod(self.img_shape)
         #self.n_classes = 10
         #self.label_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
-                            'dog', 'frog','horse','ship','truck']
+                            #'dog', 'frog','horse','ship','truck']
 
 
         # prepare loading
