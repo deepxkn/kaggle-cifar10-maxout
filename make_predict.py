@@ -11,6 +11,8 @@ import scipy.io
 HOME=os.path.expanduser("~")
 prefix=HOME+"/DATA/kaggle/cifar10/"
 
+from kaggle_cifar10 import CIFAR10_TEST
+
 _, model_path = sys.argv
 
 model = serial.load(model_path)
@@ -22,10 +24,20 @@ model.set_batch_size(batch_size)
 def load_data(file=path+"data300000.npy".format(SNR)):
     return np.load(file)
 
-X=load_data()
-X=X[ids]
+print "Loading the test data"
+X = CIFAR10_TEST(gcn = 55.)
 
-X = X.astype('float32')
+print X.shape
+
+print "Loading preprocessor"
+preprocessor=serial.load(HOME+"/DATA/image/cifar10/pylearn2_gcn_whitened/preprocessor.pkl")
+
+print "Preprocessing the test data"
+X.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
+
+print "Preprocessing finished"
+#X=load_data()
+#X = X.astype('float32')
 
 import theano.tensor as T
 

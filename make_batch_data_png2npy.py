@@ -1,5 +1,6 @@
 #!/bin/python
 #pypng should be installed
+#it will take a long time to convert all 300,000 test examples
 import png
 import os
 import numpy as np
@@ -17,22 +18,15 @@ def png2array(path):
     data = np.concatenate((data, img[...,1].reshape(1024)), axis = 0)
     data = np.concatenate((data, img[...,2].reshape(1024)), axis = 0)
     return data.astype(np.uint8)
-    #return [_flat2boxed(r) for r in p]
-    #print z
-
-def save_data(output='batch1.pkl', data=None):
-    f = open(output, 'wb')
-    cPickle.dump(data, f)
-    f.close()
-    print 'transform data successfully'
-    return
 
 def work():
     num=300000
     #num=300
-    data=np.asarray([png2array(path="{}test/{}.png".format(prefix,i+1)) for i in range(num)])
-    print data.shape
-    np.save(prefix+'data{}.npy'.format(num), data)
+    step=10000
+    for k in xrange(30):
+        data=np.asarray([png2array(path="{}test/{}.png".format(prefix,i+1)) for i in xrange(step*k, step*(k+1))])
+        print data.shape
+        np.save(prefix+'data_{}.npy'.format(k), data)
 
 if __name__ == '__main__':
     work()
