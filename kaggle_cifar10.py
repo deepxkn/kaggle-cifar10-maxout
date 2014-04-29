@@ -59,7 +59,7 @@ class CIFAR10_TEST(dense_design_matrix.DenseDesignMatrix):
 
         view_converter = dense_design_matrix.DefaultViewConverter((32,32,3), axes)
 
-        super(CIFAR10, self).__init__(X=X, view_converter=view_converter)
+        super(CIFAR10_TEST, self).__init__(X=X, view_converter=view_converter)
 
         assert not np.any(np.isnan(self.X))
 
