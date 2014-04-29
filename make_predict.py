@@ -21,9 +21,6 @@ src = model.dataset_yaml_src
 batch_size = 1000
 model.set_batch_size(batch_size)
 
-#def load_data(file=path+"data_1.npy".format(SNR)):
-#    return np.load(file)
-
 import theano.tensor as T
 
 Xb = model.get_input_space().make_batch_theano()
@@ -69,7 +66,7 @@ for k in xrange(Num):
     X = test.X.astype('float32')
     print X.shape
     print "Making predict"
-    y_pred = make_predictions(X,test)
+    #y_pred = make_predictions(X,test)
     print y_pred.shape
     y_preds.append(y_pred)
 
