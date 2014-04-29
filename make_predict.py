@@ -21,6 +21,9 @@ src = model.dataset_yaml_src
 batch_size = 100
 model.set_batch_size(batch_size)
 
+assert src.find('train') != -1
+train = yaml_parse.load(src)
+
 import theano.tensor as T
 
 Xb = model.get_input_space().make_batch_theano()
@@ -47,7 +50,7 @@ def make_predictions(X,test):
         x_arg = X[i*batch_size:(i+1)*batch_size,:]
         print len(x_arg)
         if Xb.ndim > 2:
-            x_arg = test.get_topological_view(x_arg)
+            x_arg = train.get_topological_view(x_arg)
         print "x_arg shape: ", x_arg.shape
         yy.append(batch_y(x_arg))
     return yy
