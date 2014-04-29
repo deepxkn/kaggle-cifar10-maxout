@@ -12,7 +12,7 @@ HOME=os.path.expanduser("~")
 prefix=HOME+"/DATA/kaggle/cifar10/"
 
 from kaggle_cifar10 import CIFAR10_TEST
-
+'''
 _, model_path = sys.argv
 
 model = serial.load(model_path)
@@ -81,8 +81,11 @@ y_preds = np.asarray(y_preds).flatten()
 print y_preds.shape
 
 np.save('bak/y_preds.npy', y_preds)
-
+'''
+y_preds=np.load('bak/y_preds.npy')
 import csv
+
+output_file="out.csv"
 
 label_names = [ 'airplane', 'automobile', 'bird',  'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck' ]
 labels_dict = { i: x for i, x in enumerate( label_names ) }
