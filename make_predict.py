@@ -46,8 +46,8 @@ def make_predictions(X,test):
         print i,
         x_arg = X[i*batch_size:(i+1)*batch_size,:]
         print len(x_arg)
-        if Xb.ndim > 2:
-            x_arg = test.get_topological_view(x_arg)
+        #if Xb.ndim > 2:
+        #    x_arg = test.get_topological_view(x_arg)
         yy.append(batch_y(x_arg))
     return yy
 
