@@ -37,8 +37,9 @@ from theano import function
 yp = T.argmax(ymf,axis=1)
 batch_y = function([Xb],[yp])
 
-def make_predictions(X,test):
+def make_predictions(X):
     yy = []
+    assert X.shape[0] % batch_size == 0
     #assert isinstance(X[0], (int, long))
     assert isinstance(batch_size, py_integer_types)
     print X.shape
@@ -70,14 +71,14 @@ for k in xrange(Num):
     X = test.X.astype('float32')
     print X.shape
     print "Making predict"
-    y_pred = make_predictions(X,test)
+    y_pred = make_predictions(X)
     print len(y_pred), len(y_pred[0])
-    y_preds.append(y_pred)
+    y_preds += y_pred
 
-print y_preds.shape
-y_preds = np.asarray(y_preds).flatten()
+print len(y_preds), y_preds[-1].shape
+y_preds = np.vstack(y_preds).flatten()
 print y_preds.shape
 
-np.save('bak/y_pred.npy', y_pred)
+np.save('bak/y_pred.npy', y_preds)
 
 
