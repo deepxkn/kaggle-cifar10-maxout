@@ -66,9 +66,9 @@ for k in xrange(Num):
     X = test.X.astype('float32')
     print X.shape
     print "Making predict"
-    #y_pred = make_predictions(X,test)
-    #print y_pred.shape
-    #y_preds.append(y_pred)
+    y_pred = make_predictions(X,test)
+    print y_pred.shape
+    y_preds.append(y_pred)
 
 print y_preds.shape
 y_preds = np.hstack(y_preds).flatten()
