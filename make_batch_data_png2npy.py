@@ -1,4 +1,7 @@
+#!/bin/python
+#pypng should be installed
 import png
+import os
 import numpy as np
 HOME=os.path.expanduser("~")
 prefix=HOME+"/DATA/kaggle/cifar10/"
