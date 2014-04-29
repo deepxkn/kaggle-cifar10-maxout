@@ -1,7 +1,5 @@
 import png
-import image
 import numpy as np
-import cPickle
 HOME=os.path.expanduser("~")
 prefix=HOME+"/DATA/kaggle/cifar10/"
 
