@@ -37,7 +37,7 @@ from theano import function
 yp = T.argmax(ymf,axis=1)
 batch_y = function([Xb],[yp])
 
-def make_predictions(X):
+def make_predictions(X,test):
     yy = []
     #assert isinstance(X[0], (int, long))
     assert isinstance(batch_size, py_integer_types)
@@ -51,7 +51,7 @@ def make_predictions(X):
         print len(x_arg)
         if Xb.ndim > 2:
             x_arg = test.get_topological_view(x_arg)
-        yy.append(batch_y(x_arg) )
+        yy.append(batch_y(x_arg))
     return yy
 
 print "Loading preprocessor"
@@ -62,14 +62,14 @@ Num=3
 y_preds=[]
 for k in xrange(Num):
     print "Loading the test data"
-    X = CIFAR10_TEST(file="{}data_{}.npy".format(prefix, k), gcn = 55.)
+    test = CIFAR10_TEST(file="{}data_{}.npy".format(prefix, k), gcn = 55.)
     print "Preprocessing the test data"
-    X.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
+    test.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
 
-    X = X.X.astype('float32')
+    X = test.X.astype('float32')
     print X.shape
     print "Making predict"
-    y_pred = make_predictions(X)
+    y_pred = make_predictions(X,test)
     print y_pred.shape
     y_preds.append(y_pred)
 
