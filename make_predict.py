@@ -21,23 +21,15 @@ src = model.dataset_yaml_src
 batch_size = 6000
 model.set_batch_size(batch_size)
 
-def load_data(file=path+"data300000.npy".format(SNR)):
+def load_data(file=path+"data_1.npy".format(SNR)):
     return np.load(file)
 
-print "Loading the test data"
-X = CIFAR10_TEST(gcn = 55.)
+#HOME=os.path.expanduser("~")
+#prefix=HOME+"/DATA/kaggle/cifar10/"
 
-print X.shape
 
-print "Loading preprocessor"
-preprocessor=serial.load(HOME+"/DATA/image/cifar10/pylearn2_gcn_whitened/preprocessor.pkl")
 
-print "Preprocessing the test data"
-X.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
 
-print "Preprocessing finished"
-#X=load_data()
-#X = X.astype('float32')
 
 import theano.tensor as T
 
@@ -52,7 +44,7 @@ from theano import function
 yp = T.argmax(ymf,axis=1)
 batch_y = function([Xb],[yp])
 
-def make_predict():
+def make_predictions(X):
     yy = []
     #assert isinstance(X[0], (int, long))
     assert isinstance(batch_size, py_integer_types)
@@ -69,8 +61,26 @@ def make_predict():
         yy.append(batch_y(x_arg) )
     return yy
 
-y_pred = make_predict()
-y_pred = np.hstack(y_pred).flatten()
+print "Loading preprocessor"
+preprocessor=serial.load(HOME+"/DATA/image/cifar10/pylearn2_gcn_whitened/preprocessor.pkl")
+
+#Num=30
+Num=2
+y_preds=[]
+for k in xrange(Num):
+    print "Loading the test data"
+    X = CIFAR10_TEST(gcn = 55.)
+    print X.shape
+
+    print "Preprocessing the test data"
+    X.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
+    print "Making predict"
+    y_pred = make_predictions(X)
+    print y_pred.shape
+    y_preds.append(y_pred)
+
+
+y_preds = np.hstack(y_preds).flatten()
 np.save('bak/y_pred.npy', y_pred)
 
 
