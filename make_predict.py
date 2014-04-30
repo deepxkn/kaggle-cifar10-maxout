@@ -18,7 +18,7 @@ _, model_path = sys.argv
 model = serial.load(model_path)
 
 src = model.dataset_yaml_src
-batch_size = 1000
+batch_size = 500
 model.set_batch_size(batch_size)
 
 assert src.find('train') != -1
