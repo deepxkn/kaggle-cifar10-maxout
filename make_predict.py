@@ -72,7 +72,8 @@ for k in xrange(Num):
     test.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
     X = test.X.astype('float32')
     end_time = time.clock()
-    print >> '[Preprocessing] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
+    print >> sys.stderr, '[Preprocessing] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
+    print '[Preprocessing] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
     start_time = time.clock()
 
     #print X.shape
@@ -82,11 +83,13 @@ for k in xrange(Num):
     print len(y_pred), len(y_pred[0])
     y_preds += y_pred
     end_time = time.clock()
-    print >> '[Making predictions] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
+    print >> sys.stderr, '[Making predictions] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
+    print '[Making predictions] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
 
 end_time_all = time.clock()
 
-print >> 'Total ran for %.2fm' % ( (end_time_all - start_time_all) / 60.)
+print >> sys.stderr, 'Total ran for %.2fm' % ( (end_time_all - start_time_all) / 60.)
+print 'Total ran for %.2fm' % ( (end_time_all - start_time_all) / 60.)
 
 print len(y_preds), len(y_preds[-1])
 y_preds = np.asarray(y_preds).flatten()
