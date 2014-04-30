@@ -1,0 +1,66 @@
+Using gpu device 0: GeForce GTX 285
+/home/jbzhang/PYTHON/pylearn2/pylearn2/models/mlp.py:46: UserWarning: MLP changing the recursion limit.
+  warnings.warn("MLP changing the recursion limit.")
+/home/jbzhang/PYTHON/pylearn2/pylearn2/sandbox/cuda_convnet/pool.py:26: UserWarning: image_shape argument isn't needed anymore, quit passing it.
+  warnings.warn("image_shape argument isn't needed anymore, quit passing it.")
+[Preprocessing] ran for 0.03min, 298507.46 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7147.96 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7146.26 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7143.71 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7144.56 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7141.16 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7144.56 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7143.71 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7143.71 images/min
+[Preprocessing] ran for 0.03min, 348837.21 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.86 images/min
+[Preprocessing] ran for 0.03min, 346820.81 images/min
+[Making predictions] ran for 1.40min, 7142.01 images/min
+Total ran for 42.87m
