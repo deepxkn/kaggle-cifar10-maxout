@@ -12,13 +12,13 @@ HOME=os.path.expanduser("~")
 prefix=HOME+"/DATA/kaggle/cifar10/"
 
 from kaggle_cifar10 import CIFAR10_TEST
-'''
+
 _, model_path = sys.argv
 
 model = serial.load(model_path)
 
 src = model.dataset_yaml_src
-batch_size = 100
+batch_size = 1000
 model.set_batch_size(batch_size)
 
 assert src.find('train') != -1
@@ -81,8 +81,8 @@ y_preds = np.asarray(y_preds).flatten()
 print y_preds.shape
 
 np.save('bak/y_preds.npy', y_preds)
-'''
-y_preds=np.load('bak/y_preds.npy')
+
+#y_preds=np.load('bak/y_preds.npy')
 import csv
 
 output_file="out.csv"
