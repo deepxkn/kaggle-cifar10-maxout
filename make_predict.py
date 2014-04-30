@@ -59,22 +59,34 @@ def make_predictions(X):
 print "Loading preprocessor"
 preprocessor=serial.load(HOME+"/DATA/image/cifar10/pylearn2_gcn_whitened/preprocessor.pkl")
 
+import time
+start_time_all = time.clock()
 #Num=30
 Num=30
 y_preds=[]
 for k in xrange(Num):
-    print "Loading the test data"
+    start_time = time.clock()
+    #print "Loading the test data"
     test = CIFAR10_TEST(file="{}data_{}.npy".format(prefix, k), gcn = 55.)
-    print "Preprocessing the test data"
+    #print "Preprocessing the test data"
     test.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
-
     X = test.X.astype('float32')
-    print X.shape
-    print "Making predict"
+    end_time = time.clock()
+    print >> '[Preprocessing] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
+    start_time = time.clock()
+
+    #print X.shape
+    #print "Making predict"
     y_pred = make_predictions(X)
-    print 'y_pred TYPE: ', type(y_pred)
+    #print 'y_pred TYPE: ', type(y_pred)
     print len(y_pred), len(y_pred[0])
     y_preds += y_pred
+    end_time = time.clock()
+    print >> '[Making predictions] ran for %.2fmin, %.2f images/min' % ( (end_time - start_time) / 60., X.shape[0] * 60. / (end_time - start_time))
+
+end_time_all = time.clock()
+
+print >> 'Total ran for %.2fm' % ( (end_time_all - start_time_all) / 60.)
 
 print len(y_preds), len(y_preds[-1])
 y_preds = np.asarray(y_preds).flatten()
