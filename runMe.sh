@@ -3,4 +3,4 @@
 
 PATH_PARAM=./maxout
 
-THEANO_FLAGS="device=gpu0,floatX=float32" python make_predict.py PATH_PARAM/predict_cifar10/cifar10_epoch442.pkl 2>time_k20m.info
+THEANO_FLAGS="device=gpu0,floatX=float32" python make_predict.py $PATH_PARAM/predict_cifar10/cifar10_epoch442.pkl 2>time_k20m.info
