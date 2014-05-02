@@ -67,7 +67,7 @@ y_preds=[]
 for k in xrange(Num):
     start_time = time.clock()
     #print "Loading the test data"
-    test = CIFAR10_TEST(file="{}data_{}.npy".format(prefix, k), gcn = 55.)
+    test = CIFAR10_TEST(file="{0}data_{1}.npy".format(prefix, k), gcn = 55.)
     #print "Preprocessing the test data"
     test.apply_preprocessor(preprocessor = preprocessor, can_fit = False)
     X = test.X.astype('float32')
